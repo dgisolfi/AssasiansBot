@@ -7,7 +7,35 @@ services:
     env_file: .env
     ports:
       - "5598:5598"
+    depends_on:
+      - database
+    links:
+      - database
+    networks:
+      - assasians-network
     environment: 
       BOT_ID: $BOT_ID
       GROUP_ID: $GROUP_ID
       API_TOKEN: $API_TOKEN
+    volumes:
+      - ${PWD}/AssasiansBot:/AssasiansBot
+
+
+  database:
+    image: couchdb
+    restart:  unless-stopped
+    container_name: assasians-database
+    env_file: .env
+    environment:
+      COUCHDB_USER: $COUCHDB_USER
+      COUCHDB_PASSWORD: $COUCHDB_PASSWORD
+    ports:
+      - "5597:5984"
+    volumes:
+      -  ${PWD}/database:/opt/couchdb/data
+    networks:
+      - assasians-network
+
+networks:
+  assasians-network:
+    driver: bridge

@@ -133,5 +133,6 @@ dmypy.json
 db.sqlite3
 run.py
 .env
+/database
 
 test.json

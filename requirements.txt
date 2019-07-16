@@ -4,3 +4,4 @@
 flask>=0.12.3
 requests>=2.20.0
 markdown>=2.6.11
+pycouchdb>=1.14

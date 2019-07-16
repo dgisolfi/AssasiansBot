@@ -21,5 +21,6 @@ COPY requirements.txt .
 
 RUN pip install -r requirements.txt
 
-CMD ["python3", "-m", "AssasiansBot"]
+# CMD ["python3", "-m", "AssasiansBot"]
+CMD ["python3", "./AssasiansBot/run.py"]
 
