@@ -1,0 +1,1 @@
+from AssasiansBot.bot import *
