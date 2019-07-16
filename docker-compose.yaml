@@ -18,7 +18,7 @@ services:
       GROUP_ID: $GROUP_ID
       API_TOKEN: $API_TOKEN
     volumes:
-      - ${PWD}/AssasiansBot:/AssasiansBot
+      - ${PWD}:/development
 
 
   database:
