@@ -69,11 +69,18 @@ class Bot:
     def validCmd(self, user_cmd):
         command = None
         for cmd in cmds.keys():
-            if cmd in user_cmd:
+            if cmd in lower(user_cmd):
                 command = cmd
             
         return command
 
-    def run(self, cmd, msg):
-        game = Game('', self.name)
-        return eval(f'game.{cmd}("{msg}")')
+    def run(self, packet, cmd, msg):
+        game = Game(self.name)
+        msg = lower(msg).replace(cmd, '')
+        parameters = msg.split(' ')
+        if cmd in ['join']:
+            parameters.append(packet['user_id'])
+            parameters.append(packet['name'])
+
+
+        return eval(f'game.{cmd}("{*parameters}")')

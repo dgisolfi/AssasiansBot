@@ -37,7 +37,7 @@ def webhook():
             msg = bot.removeMention(data['text'])
             cmd = bot.validCmd(msg)
             if cmd is not None:
-                response = bot.run(cmd, msg)
+                response = bot.run(data, cmd, msg)
                 print(response)
                 return 'OK', 200
             else:

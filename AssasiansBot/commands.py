@@ -1,5 +1,5 @@
 cmds = {
-    'new game': '',
+    'new game': 'setup',
     'help': 'help',
     'rules': '',
     'join':'',
